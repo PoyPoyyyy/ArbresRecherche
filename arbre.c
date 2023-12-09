@@ -50,3 +50,30 @@ void afficherArbreDecroissant (struct noeud * arbre) {
         afficherArbreDecroissant(arbre->nD);
     }
 }
+
+int trouverMin(struct noeud * arbre) {
+    while (arbre->nG != NULL) {
+        arbre = arbre->nG;
+    }
+    return arbre->valeur;
+}
+
+int trouverMax(struct noeud * arbre) {
+    while (arbre->nD != NULL) {
+        arbre = arbre->nD;
+    }
+    return arbre->valeur;
+}
+
+bool rechercherValeur(struct noeud * arbre, int valeur) {
+    if (arbre == NULL) {
+        return false;
+    }
+    if (arbre->valeur == valeur) {
+        return true;
+    } else if (valeur < arbre->valeur) {
+        return rechercherValeur(arbre->nG, valeur);
+    } else {
+        return rechercherValeur(arbre->nD, valeur);
+    }
+}
