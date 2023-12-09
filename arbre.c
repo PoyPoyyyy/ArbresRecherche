@@ -30,3 +30,23 @@ struct noeud *ajouterNoeud(struct noeud * arbre, struct noeud * n){
     }
     return arbre;
 }
+
+void afficherArbreCroissant (struct noeud * arbre) {
+    if (arbre->nD != NULL) {
+        afficherArbreCroissant(arbre->nD);
+    }
+    printf("%d ", arbre->valeur);
+    if (arbre->nG != NULL) {
+        afficherArbreCroissant(arbre->nG);
+    }
+}
+
+void afficherArbreDecroissant (struct noeud * arbre) {
+    if (arbre->nG != NULL) {
+        afficherArbreDecroissant(arbre->nG);
+    }
+    printf("%d ", arbre->valeur);
+    if (arbre->nD != NULL) {
+        afficherArbreDecroissant(arbre->nD);
+    }
+}
