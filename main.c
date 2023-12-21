@@ -41,5 +41,15 @@ int main(void) {
     trouve = rechercherValeur(arbre, 200);
     printf("%d \n", trouve);
 
+    printf("L'arbre est composé de %d noeuds \n", compterNoeuds(arbre));
+
+    printf("Suppression de la valeur 100 dans l'arbre")
+    supprimerNoeud(arbre, 100)
+    printf("Affichage croissant de l'arbre sans la valeur 100: \n");
+    afficherArbreCroissant(arbre);
+    printf("\n");
+
+    libererArbre(arbre);
+    
     return 0;
 }
