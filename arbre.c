@@ -78,14 +78,14 @@ bool rechercherValeur(struct noeud * arbre, int valeur) {
     }
 }
 
-int compterNoeuds(struct noeud* arbre) {
+int compterNoeuds(struct noeud * arbre) {
     if (arbre == NULL) {
         return 0;
     }
     return 1 + compterNoeuds(arbre->nG) + compterNoeuds(arbre->nD);
 }
 
-struct noeud * supprimerNoeud(struct noeud* arbre, int valeur) {
+struct noeud * supprimerNoeud(struct noeud * arbre, int valeur) {
     if (arbre == NULL) {
         return arbre;
     }
@@ -108,4 +108,13 @@ struct noeud * supprimerNoeud(struct noeud* arbre, int valeur) {
         arbre->nD = supprimerNoeud(arbre->nD, temp->valeur);
     }
     return arbre;
+}
+
+void libererArbre(struct noeud * arbre) {
+    if (arbre == NULL) {
+        return;
+    }
+    libererArbre(arbre->nG);
+    libererArbre(arbre->nD);
+    free(arbre);
 }
