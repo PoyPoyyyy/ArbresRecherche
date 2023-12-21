@@ -17,5 +17,6 @@ int trouverMax(struct noeud * arbre);
 int trouverMin(struct noeud * arbre);
 bool rechercherValeur(struct noeud * arbre, int valeur);
 int compterNoeuds(struct noeud* arbre);
+struct noeud * supprimerNoeud(struct noeud* arbre, int valeur);
 
 #endif

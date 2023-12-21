@@ -84,3 +84,28 @@ int compterNoeuds(struct noeud* arbre) {
     }
     return 1 + compterNoeuds(arbre->nG) + compterNoeuds(arbre->nD);
 }
+
+struct noeud * supprimerNoeud(struct noeud* arbre, int valeur) {
+    if (arbre == NULL) {
+        return arbre;
+    }
+    if (valeur < arbre->valeur) {
+        arbre->nG = supprimerNoeud(arbre->nG, valeur);
+    } else if (valeur > arbre->valeur) {
+        arbre->nD = supprimerNoeud(arbre->nD, valeur);
+    } else {
+        if (arbre->nG == NULL) {
+            struct noeud * temp = arbre->nD;
+            free(arbre);
+            return temp;
+        } else if (arbre->nD == NULL) {
+            struct noeud * temp = arbre->nG;
+            free(arbre);
+            return temp;
+        }
+        struct noeud * temp = trouverMin(arbre->nD);
+        arbre->valeur = temp->valeur;
+        arbre->nD = supprimerNoeud(arbre->nD, temp->valeur);
+    }
+    return arbre;
+}
