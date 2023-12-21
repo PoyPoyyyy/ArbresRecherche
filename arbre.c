@@ -77,3 +77,10 @@ bool rechercherValeur(struct noeud * arbre, int valeur) {
         return rechercherValeur(arbre->nD, valeur);
     }
 }
+
+int compterNoeuds(struct noeud* arbre) {
+    if (arbre == NULL) {
+        return 0;
+    }
+    return 1 + compterNoeuds(arbre->nG) + compterNoeuds(arbre->nD);
+}

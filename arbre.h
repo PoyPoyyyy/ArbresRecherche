@@ -16,5 +16,6 @@ void afficherArbreDecroissant(struct noeud * arbre);
 int trouverMax(struct noeud * arbre);
 int trouverMin(struct noeud * arbre);
 bool rechercherValeur(struct noeud * arbre, int valeur);
+int compterNoeuds(struct noeud* arbre);
 
 #endif
